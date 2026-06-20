@@ -8,9 +8,6 @@ class QuizQuestion {
     required this.options,
     required this.answer,
   });
-
-  // This builds a QuizQuestion directly from JSON data,
-  // exactly like what Peblo's backend would send us.
   factory QuizQuestion.fromJson(Map<String, dynamic> json) {
     return QuizQuestion(
       question: json['question'] as String,
