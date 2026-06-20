@@ -85,3 +85,15 @@ Answer:
 • This caused playback and state conflicts.
 • Resolved by separating narration and feedback responsibilities.
 • Improved reliability and state management.
+9 ## 7. Performance profiling
+Measured using the Flutter Performance Overlay in profile mode
+(`flutter run --profile`).
+- **Idle / resting state** (quiz card displayed, no animation running):
+  UI avg 3.7 ms/frame, Raster avg 11.3 ms/frame — comfortably within the
+  16.6ms frame budget.
+- **Peak load** (wrong-answer shake animation triggered): UI avg 6.5 ms/frame,
+  Raster avg 10.0 ms/frame on average, with an occasional raster spike up to
+  136.7 ms/frame during the transition. This is a momentary dropped frame
+  during the shake/haptic trigger, not a sustained issue — average frame
+  times stay well under budget throughout.
+(IMAGES IN THE ZIP FOLDER)
